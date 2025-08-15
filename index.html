@@ -1,24 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Portfolio Frontend</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeHeaven</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <h1>Welcome to My Portfolio</h1>
-        <p>Showcasing my projects and skills</p>
+        <div class="container">
+            <h1>CodeHeaven</h1>
+            <p>Your portfolio, your showcase.</p>
+        </div>
     </header>
 
-    <main>
-        <button class="btn primary" onclick="alert('You clicked Project 1!')">Project 1</button>
-        <button class="btn secondary" onclick="alert('You clicked Project 2!')">Project 2</button>
-        <button class="btn success" onclick="alert('You clicked Project 3!')">Project 3</button>
-    </main>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Hi! I am Kumaran, a CS student learning web development. This is my CodeHeaven project to showcase my skills in HTML, CSS, and JavaScript.</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Project 1</h3>
+                    <p>A cool frontend project with HTML & CSS.</p>
+                    <button onclick="alert('Project 1 clicked!')">View Project</button>
+                </div>
+                <div class="project-card">
+                    <h3>Project 2</h3>
+                    <p>Another project demonstrating CSS animations.</p>
+                    <button onclick="alert('Project 2 clicked!')">View Project</button>
+                </div>
+                <div class="project-card">
+                    <h3>Project 3</h3>
+                    <p>Interactive webpage using JavaScript buttons.</p>
+                    <button onclick="alert('Project 3 clicked!')">View Project</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Email: kumaran@example.com</p>
+            <p>GitHub: <a href="https://github.com/kumaran-2525" target="_blank">kumaran-2525</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>© 2025 My Portfolio</p>
+        <p>© 2025 CodeHeaven. All Rights Reserved.</p>
     </footer>
 </body>
 </html>

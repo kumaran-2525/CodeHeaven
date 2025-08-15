@@ -1,0 +1,66 @@
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg, #f0f4ff, #dff9fb);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+header {
+    background-color: #2d3436;
+    color: white;
+    padding: 20px 0;
+}
+
+/* Main section */
+main {
+    margin: 50px 0;
+}
+
+/* Button styles */
+.btn {
+    padding: 12px 24px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+/* Button color variations */
+.primary {
+    background-color: #0984e3;
+    color: white;
+}
+.primary:hover {
+    background-color: #74b9ff;
+}
+
+.secondary {
+    background-color: #636e72;
+    color: white;
+}
+.secondary:hover {
+    background-color: #b2bec3;
+}
+
+.success {
+    background-color: #00b894;
+    color: white;
+}
+.success:hover {
+    background-color: #55efc4;
+}
+
+/* Footer styling */
+footer {
+    background-color: #2d3436;
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

@@ -1,4 +1,12 @@
-/* General */
+/* --- Root Variables & Global Styles --- */
+:root {
+    --bg-color: #0a0a0a;
+    --primary-color: #ffffff;
+    --accent-color: #007cf0;
+    --font-family: 'DM Sans', sans-serif;
+    --ease: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,132 +14,228 @@
 }
 
 body {
-    font-family: 'Georgia', 'Times New Roman', serif; /* Bold, classic font */
-    line-height: 1.6;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Blue-black gradient */
-    color: #ffffff; /* White text */
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    cursor: none;
+    overflow-x: hidden;
 }
 
-/* Header */
-header {
-    background: linear-gradient(to right, #0f2027, #2c5364);
-    color: white;
-    padding: 80px 0;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-}
-
-header h1 {
-    font-size: 3.5em;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-}
-
-header p {
-    font-size: 1.2em;
-    font-weight: 500;
-}
-
-/* Navigation */
-nav {
-    background: rgba(0,0,0,0.8);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.5);
-}
-
-nav ul {
+/* --- Preloader --- */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
     display: flex;
     justify-content: center;
-    list-style: none;
+    align-items: center;
+    z-index: 10000;
+}
+.loader-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
 }
 
-nav ul li {
-    margin: 0 25px;
+/* --- Custom Cursor --- */
+.cursor {
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    border: 1px solid var(--primary-color);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s var(--ease), height 0.3s var(--ease), background-color 0.3s var(--ease);
+    z-index: 9999;
 }
 
-nav ul li a {
+/* --- 3D Canvas & Main Container --- */
+#canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+.main-container {
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Header & Navigation --- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+}
+.nav-brand {
+    font-size: 2rem;
+    font-weight: 700;
     text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 1.1em;
-    transition: 0.3s;
+    color: var(--primary-color);
+}
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+}
+.nav-link {
+    text-decoration: none;
+    color: var(--primary-color);
+    opacity: 0.7;
+    transition: opacity 0.3s var(--ease);
+}
+.nav-link:hover {
+    opacity: 1;
 }
 
-nav ul li a:hover {
-    color: #00bfff; /* Light blue on hover */
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.hero-title {
+    font-size: clamp(3rem, 10vw, 9rem);
+    font-weight: 700;
+    line-height: 1;
+    overflow: hidden;
+}
+.hero-title span {
+    display: block;
+    transform: translateY(110%);
+}
+.hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 0;
+    margin-top: 1rem;
 }
 
-/* Sections */
-section {
-    padding: 80px 20px;
+/* --- About Section --- */
+.about-section {
+    padding: 10rem 0;
 }
-
-.container {
-    width: 80%;
-    margin: auto;
+.about-intro {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    line-height: 1.3;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
 }
+.split-text { opacity: 0.1; }
 
-/* Projects Grid */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-top: 50px;
+/* --- Projects Horizontal Scroll Section --- */
+.projects-section {
+    padding: 5rem 0;
+    overflow: hidden;
 }
-
+.section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    opacity: 0.8;
+}
+.projects-container {
+    display: flex;
+    width: 400%; /* 100% per card */
+    height: 70vh;
+    padding-left: 10vw; /* Start first card a bit from the edge */
+}
 .project-card {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 25px;
-    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    padding: 0 5vw;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    border-radius: 30px;
+    transform-style: preserve-3d;
+}
+.project-card:nth-child(1) { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/800x600/007BFF/FFFFFF?text=Cygnus'); }
+.project-card:nth-child(2) { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/800x600/28A745/FFFFFF?text=Orion'); }
+.project-card:nth-child(3) { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/800x600/DC3545/FFFFFF?text=Lyra'); }
+.project-card:nth-child(4) { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/800x600/FFC107/FFFFFF?text=Draco'); }
+
+.project-content {
     text-align: center;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-    transition: transform 0.4s, box-shadow 0.4s;
+    transform: translateZ(50px);
+}
+.project-content h3 { font-size: 3rem; }
+.project-content p { font-size: 1.2rem; opacity: 0.8; margin: 1rem 0 2rem; }
+.project-link {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    text-decoration: none;
+    border: 1px solid var(--primary-color);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    transition: background-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+.project-link:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
 }
 
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.8);
-}
-
-.project-card h3 {
-    margin-bottom: 15px;
-    color: #00bfff; /* Light blue heading */
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-.project-card p {
-    margin-bottom: 20px;
-    font-size: 1em;
-}
-
-/* Buttons */
-.project-card button {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 10px;
-    background: #000000; /* Black button */
-    color: #ffffff; /* White text */
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
-}
-
-.project-card button:hover {
-    background: #00bfff; /* Light blue on hover */
-    transform: scale(1.05);
-}
-
-/* Contact */
-#contact p {
-    margin-bottom: 12px;
-}
-
-/* Footer */
-footer {
-    background: rgba(0,0,0,0.9);
-    color: white;
+/* --- Contact Section --- */
+.contact-section {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 25px 0;
-    font-weight: bold;
+}
+.contact-link {
+    font-size: clamp(2rem, 8vw, 7rem);
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+}
+.contact-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s var(--ease);
+}
+.contact-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* --- Keyframes & Responsive --- */
+@keyframes fadeIn { to { opacity: 1; } }
+
+@media (max-width: 768px) {
+    .cursor { display: none; }
+    body { cursor: auto; }
+    .nav-menu { display: none; } /* Simplified for this example */
+    .projects-container { width: 800%; height: 60vh; } /* More width for more cards on mobile */
 }

@@ -3,71 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeHeaven</title>
+    <title>Kumaran | Experiential Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: DM Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader-text">Loading Experience...</div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+
+    <!-- 3D Background Canvas -->
+    <div id="canvas-container"></div>
+
     <!-- Header -->
-    <header>
-        <div class="container">
-            <h1>CodeHeaven</h1>
-            <p>Your portfolio, your showcase.</p>
-        </div>
+    <header class="header">
+        <nav class="navbar container">
+            <a href="#home" class="nav-brand magnetic" data-magnetic-strength="50">K.</a>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link magnetic" data-magnetic-strength="20">About</a></li>
+                <li><a href="#projects" class="nav-link magnetic" data-magnetic-strength="20">Work</a></li>
+                <li><a href="#contact" class="nav-link magnetic" data-magnetic-strength="20">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <div class="main-container">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span>Creative</span>
+                    <span>Developer</span>
+                </h1>
+                <p class="hero-subtitle">Crafting immersive digital realities from code.</p>
+            </div>
+        </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>Hi! I am Kumaran, a CS student learning web development. This is my CodeHeaven project to showcase my skills in HTML, CSS, and JavaScript.</p>
-        </div>
-    </section>
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <p class="about-intro split-text">
+                    I am a digital architect and creative technologist, blending code with artistry to build experiences that are not only functional but also memorable and emotionally resonant.
+                </p>
+            </div>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2>My Projects</h2>
-            <div class="projects-grid">
+        <!-- Projects Horizontal Scroll Section -->
+        <section id="projects" class="projects-section">
+            <h2 class="section-title">Featured Work</h2>
+            <div class="projects-container">
                 <div class="project-card">
-                    <h3>Project 1</h3>
-                    <p>A cool frontend project with HTML & CSS.</p>
-                    <button onclick="alert('Project 1 clicked!')">View Project</button>
+                    <div class="project-content">
+                        <h3>Project Cygnus</h3>
+                        <p>An interactive 3D product customizer built with WebGL.</p>
+                        <a href="#" class="project-link magnetic" data-magnetic-strength="30">Explore</a>
+                    </div>
                 </div>
                 <div class="project-card">
-                    <h3>Project 2</h3>
-                    <p>Another project demonstrating CSS animations.</p>
-                    <button onclick="alert('Project 2 clicked!')">View Project</button>
+                    <div class="project-content">
+                        <h3>Project Orion</h3>
+                        <p>A generative art platform creating unique visuals from data.</p>
+                        <a href="#" class="project-link magnetic" data-magnetic-strength="30">Explore</a>
+                    </div>
                 </div>
                 <div class="project-card">
-                    <h3>Project 3</h3>
-                    <p>Interactive webpage using JavaScript buttons.</p>
-                    <button onclick="alert('Project 3 clicked!')">View Project</button>
+                    <div class="project-content">
+                        <h3>Project Lyra</h3>
+                        <p>A headless CMS-powered blog with cinematic page transitions.</p>
+                        <a href="#" class="project-link magnetic" data-magnetic-strength="30">Explore</a>
+                    </div>
+                </div>
+                 <div class="project-card">
+                    <div class="project-content">
+                        <h3>Project Draco</h3>
+                        <p>An e-commerce site with a focus on micro-interactions.</p>
+                        <a href="#" class="project-link magnetic" data-magnetic-strength="30">Explore</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <p>Email: kumaran@example.com</p>
-            <p>GitHub: <a href="https://github.com/kumaran-2525" target="_blank">kumaran-2525</a></p>
-        </div>
-    </section>
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Have a project in mind?</h2>
+                <a href="mailto:kumaran12367@gmail.com" class="contact-link magnetic" data-magnetic-strength="100">Let's Talk</a>
+            </div>
+        </section>
+    </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 CodeHeaven. All Rights Reserved.</p>
-    </footer>
+    <!-- GSAP & Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
